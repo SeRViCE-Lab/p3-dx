@@ -22,15 +22,18 @@ private:
   laser_geometry::LaserProjection projector_;
   tf::TransformListener listener_;
   pcl::PointCloud<pcl::PointXYZ>::Ptr pclCloud;
-  ros::AsyncSpinner spinner;
 
-  std::mutex lock;
   bool updateCloud;
+
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
 
 public:
   laser_clouds();
   ~laser_clouds(){}
-  void init();
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewerCreator();
+  void keyboardEventOccurred (const pcl::visualization::KeyboardEvent &event,
+                              void* viewer_void);
+
   //high fidelity projection
   void laserCallback(const sensor_msgs::LaserScan::ConstPtr& msg )
   {
@@ -47,11 +50,23 @@ public:
     projector_.transformLaserScanToPointCloud("/base_link",*msg,
             cloud,listener_);
 
-    // lock.lock();
     readCloud(cloud, pclCloud);    
-    this->pclCloud = pclCloud;
-    updateCloud = false;
-    // lock.unlock();
+
+    if(ros::ok())
+    {            
+      viewer->setSize(400, 400);
+      viewer->addPointCloud<pcl::PointXYZ> (this->pclCloud, "laser_cloud");     
+      viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "laser_cloud"); 
+      viewer->spinOnce(10);
+      boost::this_thread::sleep(boost::posix_time::microseconds(100));
+
+      if(updateCloud)
+      {      
+        viewer->removePointCloud("laser_cloud");
+        viewer->updatePointCloud(this->pclCloud, "laser_cloud");
+      }
+    }
+    updateCloud = true;
   }
 
   void readCloud(const sensor_msgs::PointCloud sensorCloud, pcl::PointCloud<pcl::PointXYZ>::Ptr pclCloud)
@@ -64,51 +79,49 @@ public:
       points.y = (*it).y;
       points.z = (*it).z;
       pclCloud->points.push_back(points);
-
-      ROS_INFO_STREAM("sensorCloud: " << *it);
-    }
-
-    // ROS_INFO_STREAM("sensorCloud: " << sensorCloud);
-    // ROS_INFO_STREAM("pclCloud " << *pclCloud);
-    ROS_INFO("updateCloud status: %d .", updateCloud);
-
-    pcl::visualization::PCLVisualizer::Ptr viewer (new pcl::visualization::PCLVisualizer ("Laser_Cloud_Viewer"));
-    viewer->setBackgroundColor (0, 0, 0);
-    viewer->addPointCloud<pcl::PointXYZ> (pclCloud, "laser_cloud");
-    viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "laser_cloud");
-    viewer->addCoordinateSystem (1.0);    
-    viewer->setSize(640, 480);
-    viewer->initCameraParameters ();
-
-    while(!viewer->wasStopped() && ros::ok())
-    {
-      if(updateCloud)
-      {
-        // lock.lock();
-        pclCloud = this->pclCloud;
-        updateCloud = false;
-        // lock.unlock();
-
-        viewer->setSize(640, 480);
-        viewer->updatePointCloud(pclCloud, "laser cloud");
-      }
-      viewer->spinOnce(100);
-    }
-    viewer->close();
+    }  
+    this->pclCloud = pclCloud;
   }
 };
 
 laser_clouds::laser_clouds()
-  : updateCloud(true), spinner(0) {}
+  : updateCloud(false){
+    viewer = laser_clouds::viewerCreator();
+  }
 
-void laser_clouds::init()
+boost::shared_ptr<pcl::visualization::PCLVisualizer> laser_clouds::viewerCreator()
+{    
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Laser Scans 2D"));
+  viewer->setBackgroundColor (0, 0, 0);
+  viewer->addCoordinateSystem (1.0);    //don't want no cylinder
+  viewer->setSize(400, 400);
+  viewer->initCameraParameters ();
+  viewer->registerKeyboardCallback (&laser_clouds::keyboardEventOccurred, *this);
+  return viewer;
+}
+
+unsigned int text_id = 0;
+void laser_clouds::keyboardEventOccurred (const pcl::visualization::KeyboardEvent &event,
+                            void* viewer_void)
 {
-  spinner.start();
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer = *static_cast<boost::shared_ptr<pcl::visualization::PCLVisualizer> *> (viewer_void);
+  if (event.getKeySym () == "r" && event.keyDown ())
+  {
+    std::cout << "r was pressed => removing all text" << std::endl;
+
+    char str[512];
+    for (unsigned int i = 0; i < text_id; ++i)
+    {
+      sprintf (str, "text#%03d", i);
+      viewer->removeShape (str);
+    }
+    text_id = 0;
+  }
 }
 
 int main(int argc, char** argv)
 {
-	ros::init(argc, argv, "laser_clouds");
+	ros::init(argc, argv, "laser_scans");
 
 	ros::NodeHandle n_laser;
   laser_clouds ls;

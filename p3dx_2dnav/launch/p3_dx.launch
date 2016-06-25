@@ -11,11 +11,11 @@
     <param name="sensor_param" value="param_value" />
   </node>
 
-  <node pkg="odom_navs" type="odom_navs" name="odom_navs" output="screen">
+  <node pkg="odom_navs" type="odom_navs" name="odom_node" output="screen">
     <param name="odom_param" value="param_value" />
   </node>
 
-  <node pkg="tf_sub" type="tf_sub" name="tf_sub" output="screen">
+  <node pkg="tf" type="tf" name="tf_node" output="screen">
     <param name="transform_configuration_param" value="param_value" />
   </node>
 </launch>

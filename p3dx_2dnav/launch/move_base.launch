@@ -1,0 +1,17 @@
+<launch>
+  <master auto="start"/>
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.pgm 0.05"/>
+
+  <!--- Run AMCL -->
+  <include file="$(find amcl)/examples/amcl_omni.launch" />
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find p3dx_2dnav)/cost_params/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find p3dx_2dnav)/cost_params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find p3dx_2dnav)/cost_params/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_2dnav)/cost_params/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find p3dx_2dnav)/cost_params/base_local_planner_params.yaml" command="load" />
+  </node>
+</launch>

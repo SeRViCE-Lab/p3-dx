@@ -26,9 +26,14 @@ private:
   pcl::PointCloud<pcl::PointXYZ>::Ptr cloud ;
   bool updateCloud;
 
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+
 public:
   sonar_clouds()
-  : updateCloud(false) {}
+  : updateCloud(false) 
+  {    
+    viewer = sonar_clouds::viewerCreator();
+  }
   ~sonar_clouds(){}
 
   void sonarCallback(const sensor_msgs::PointCloud2& msg )
@@ -36,58 +41,40 @@ public:
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
     readCloud(msg, cloud);
 
-    lock.lock();
-    this->cloud = cloud;
-    updateCloud=true;
-    lock.unlock();
+    if(ros::ok())
+    {     
+     viewer->addPointCloud<pcl::PointXYZ> (this->cloud, "sonar_cloud");     
+     viewer->setSize(400, 400);
+     viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sonar_cloud");
+     viewer->spinOnce(10);
+     boost::this_thread::sleep(boost::posix_time::microseconds(100));
+
+     if(msg.header.seq >=2)
+     {      
+       viewer->removePointCloud("sonar_cloud");
+       viewer->updatePointCloud(this->cloud, "sonar_cloud");
+     }
+    }
+
   }
 
   void readCloud(const sensor_msgs::PointCloud2& msg, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud)
   {
-    pcl2 pcl_pc2;
-    pointXYZ pcl_cloud;
-    pcl::PCLPointCloud2 pcl_pc;
-    pcl::fromPCLPointCloud2(pcl_pc, *cloud);
-
- //all of these work but vizer doesn't like it
-  //so I am commenting 'em out till we figure out a better way of minimally
-  //converting rosmsgs to pcl' 
-  /*  
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
-    pcl_conversions::copyPointCloud2MetaData (msg, pcl_pc2);
-    pcl_conversions::toPCL(msg, pcl_pc);
-    pcl::fromROSMsg (msg, pcl_cloud);
-    this->pcl_pc2 = pcl_pc2;
-    this->pcl_cloud = pcl_cloud;*/
-
-    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Sonar Viewer"));
-    viewer->setBackgroundColor (0, 0, 0);
-    viewer->addPointCloud<pcl::PointXYZ> (cloud, "sonar cloud");
-    viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sonar cloud");
-    viewer->addCoordinateSystem (1.0);    //don't want no cylinder
-    viewer->setSize(640, 480);
-    viewer->initCameraParameters ();
-
-    while(!viewer->wasStopped() && ros::ok())
-    {
-      if(updateCloud)
-      {
-        lock.lock();
-        cloud = this->cloud;
-        updateCloud = false;
-        lock.unlock();
-
-        viewer->setSize(640, 480);
-        viewer->updatePointCloud(cloud, "sonar cloud");
-      }
-      viewer->spinOnce(100);
-    }
-    viewer->close();
+    pcl::PCLPointCloud2 pcl_pc2;
+    pcl_conversions::toPCL(msg, pcl_pc2);
+    pcl::fromPCLPointCloud2(pcl_pc2, *cloud);
+    this->cloud = cloud;
   }
 
-  void show_cloud()
-  {
-
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewerCreator()
+  {    
+    boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Sonar Clouds 3D"));
+    viewer->setBackgroundColor (0, 0, 0);
+    viewer->addCoordinateSystem (1.0);    //don't want no cylinder
+    viewer->setSize(400, 400);
+    viewer->initCameraParameters ();
+    viewer->registerKeyboardCallback (&sonar_clouds::keyboardEventOccurred, *this);
+    return viewer;
   }
 
   void keyboardEventOccurred (const pcl::visualization::KeyboardEvent &event,
@@ -110,9 +97,6 @@ public:
   }
 
 };
-
-
-
 
 int main(int argc, char** argv)
 {
