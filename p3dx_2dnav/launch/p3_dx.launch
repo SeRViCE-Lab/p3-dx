@@ -1,0 +1,21 @@
+<launch>
+  <node pkg="scanner_clouds" type="scanner_clouds" name="laser_clouds" output="screen">
+    <param name="sensor_param" value="param_value" />
+  </node>
+
+  <node pkg="sonar_clouds" type="sonar_clouds" name="sonar_clouds" output="screen">
+    <param name="sensor_param" value="param_value" />
+  </node>
+
+  <node pkg="laser_scans" type="laser_scans" name="laser_scans" output="screen">
+    <param name="sensor_param" value="param_value" />
+  </node>
+
+  <node pkg="odom_navs" type="odom_navs" name="odom_navs" output="screen">
+    <param name="odom_param" value="param_value" />
+  </node>
+
+  <node pkg="tf_sub" type="tf_sub" name="tf_sub" output="screen">
+    <param name="transform_configuration_param" value="param_value" />
+  </node>
+</launch>

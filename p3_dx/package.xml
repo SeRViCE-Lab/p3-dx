@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package>
+  <name>p3_dx</name>
+  <version>0.0.0</version>
+  <description>The p3_dx package</description>
+  <maintainer email="ogunmolu@amazon.com">Lekan</maintainer>
+
+  <license>Amazon Robotics License</license>
+  <author email="ogunmolu@amazon.com">Lekan Ogunmolu</author>
+
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <!-- The *_depend tags are used to specify dependencies -->
+  <!-- Dependencies can be catkin packages or system dependencies -->
+  <!-- Examples: -->
+  <!-- Use build_depend for packages you need at compile time: -->
+  <!--   <build_depend>message_generation</build_depend> -->
+  <!-- Use buildtool_depend for build tool packages: -->
+  <!--   <buildtool_depend>catkin</buildtool_depend> -->
+  <!-- Use run_depend for packages you need at runtime: -->
+  <run_depend>scanner_clouds</run_depend>
+  <run_depend>sonar_clouds</run_depend>
+<<<<<<< HEAD
+=======
+  <run_depend>ros-arnl</run_depend>
+  <run_depend>jog_mover</run_depend>
+>>>>>>> 2e20c048c155c801091866cd88d677832055f846
+  <!-- Use test_depend for packages you need only for testing: -->
+  <!--   <test_depend>gtest</test_depend> -->
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+    <metapackage/>
+  </export>
+</package>
