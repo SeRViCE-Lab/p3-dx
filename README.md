@@ -4,7 +4,7 @@
 
 This package supports indoor localization and dynamic SLAM via an adaptive Monte Carlo Localization for mobile robots as described by Thrun, Dieter fox and colleagues in their book, Probabilistic Robotics. To aid faster implementation time, we have developed the code in ROS. This repo also has a set of clients that pushes velocity commands to the P3_DX robot from [adept mobile robots](http://www.mobilerobots.com/ResearchRobots/PioneerP3DX.aspx). In addition to sending velocity commands, and performing dynamic SLAM based on LIDAR data, it subscribes to the [RosAria package's](wiki.ros.org/rosaria)sonar scans, laser scans, and projected 3D laser scans(point clouds) and provides a <i>400 X 400</i> pixels window to visualize these topics in real-time. Example point clouds from the sonars and laser scanners are provided below:
 
-![P3_dx and Sick LIDAR](http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx)
+[![P3_dx and Sick LIDAR](http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx)]((http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx))
 [![Laser 3D Point Clouds](https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005)](https://youtu.be/lYgp8qZjvks)
 [![Laser 2D Point Clouds](https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757)](https://youtu.be/B871f3qa1p4)
 [![Sonar 3D Point Clouds](https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=1466973658634)](https://youtu.be/PYT4FCIVYgw)
