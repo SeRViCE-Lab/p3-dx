@@ -15,7 +15,7 @@
     <param name="odom_param" value="param_value" />
   </node>
 
-  <node pkg="tf" type="tf" name="tf_node" output="screen">
+  <node pkg="tf_listener" type="tf_listener" name="tf_node" output="screen">
     <param name="transform_configuration_param" value="param_value" />
   </node>
 </launch>

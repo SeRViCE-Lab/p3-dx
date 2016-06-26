@@ -1,3 +1,10 @@
+/*
+* Author: Olalelan Ogunmolu
+* Boston, MA
+* June 2016
+* Licensed under the MIT License
+*/
+
 #include <ros/ros.h>
 #include <nav_msgs/Odometry.h>
 #include <geometry_msgs/Point.h>
@@ -20,7 +27,7 @@ public:
 
 	void odomCallback(const nav_msgs::Odometry::ConstPtr& odom_msg)
 	{
-		ROS_INFO_STREAM("Odom message aarived: " << odom_msg);
+		// ROS_INFO_STREAM("Odom message aarived: " << odom_msg);
 		readPose(odom_msg, pose);
 		readTwist(odom_msg, twist);
 	}
@@ -31,13 +38,13 @@ void odom::readPose(const nav_msgs::Odometry::ConstPtr& odom_msg, geometry_msgs:
 {
 	//x, y, z, and quarternion
 	// pose = odom_msg.pose;
-	ROS_INFO_STREAM("odom pose " << odom_msg);
+	// ROS_INFO_STREAM("odom pose " << odom_msg->pose);
 }
 
 void odom::readTwist(const nav_msgs::Odometry::ConstPtr& odom_msg, geometry_msgs::Twist twist)
 {
 	// twist = odom_msg.twist;
-	ROS_INFO_STREAM("odom twist " << odom_msg);
+	// ROS_INFO_STREAM("odom twist " << odom_msg->twist);
 
 }
 
@@ -47,4 +54,7 @@ int main(int argc, char** argv)
 	ros::NodeHandle n_odom;
 	odom od;
 	ros::Subscriber sub = n_odom.subscribe("/RosAria/pose", 1000, &odom::odomCallback, &od);
+
+	ros::spin();
+	return EXIT_SUCCESS; 
 }

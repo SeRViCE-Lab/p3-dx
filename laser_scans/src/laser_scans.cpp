@@ -1,3 +1,10 @@
+/*
+* Author: Olalelan Ogunmolu
+* Boston, MA
+* June 2016
+* Licensed under the Amazon Robotics License
+*/
+
 #include <ros/ros.h>
 #include <sensor_msgs/LaserScan.h>
 #include <iostream>
