@@ -1,13 +1,23 @@
 [Table of Contents](#table-of-contents)
+
 [Introduction](#introduction)
+
 [Dependencies](#dependencies)
+
 [Bring up the Robot](#bring-up-the-robot)
+
 	- [Stream Sonar Point Clouds](#stream-sonar-point-clouds)
+
 	- [Stream Laser 2D clouds (sensor_msgs/PointCloud)](#stream-laser-2D-clouds-(sensor_msgs/pointCloud))
+
 	- [Stream Laser 3D Point clouds](#stream-laser-3d-point-clouds)
+
 	- [Publish dynamic tf transform Twist messages to robot](#publish-dynamic-tf-transform-twist-messages-to-robot)
+
 	- [Start all the nodes above simultaneously](#start-all-the-nodes-above-simultaneously)
+
 	- [Navigate the environment using ROS' navigation stack](#Navigate-the-environment-using-ROS'-navigation-stack)
+
 [Questions](#questions)
 
 
@@ -16,7 +26,9 @@
 This repo also has a set of clients that pushes velocity commands to the P3_DX robot from [adept mobile robots](http://www.mobilerobots.com/ResearchRobots/PioneerP3DX.aspx). The package supports indoor localization and dynamic SLAM via an adaptive Monte Carlo Localization (AMCL) for mobile robots as described by Sebastian Thrun, Wolfram Burgard, and Dieter Fox in their book, <i>Probabilistic Robotics, Intelligent Robotics and Autonomous Agent</i>. To aid faster implementation time, we have developed the code in ROS. In addition to sending velocity commands, and performing dynamic SLAM based on LIDAR data, it subscribes to the [RosAria package's](wiki.ros.org/rosaria)sonar scans, laser scans, and projected 3D laser scans(point clouds) and provides a <i>400 X 400</i> pixels window to visualize these topics in real-time. Example point clouds from the sonars and laser scanners are provided below:
 
 <img src="http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx" height="250px">
-[![Laser 3D Point Clouds](https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005)](https://youtu.be/lYgp8qZjvks)
+<a href="https://youtu.be/lYgp8qZjvks">
+	<img src="https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005)" height="250px">Laser 3D Point Clouds</a>
+<!-- [![Laser 3D Point Clouds](https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005)](https://youtu.be/lYgp8qZjvks) -->
 [![Laser 2D Point Clouds](https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757)](https://youtu.be/B871f3qa1p4)
 [![Sonar 3D Point Clouds](https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=1466973658634)](https://youtu.be/PYT4FCIVYgw)
 
