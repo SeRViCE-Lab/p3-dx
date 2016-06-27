@@ -35,18 +35,17 @@ This repo also has a set of clients that pushes velocity commands to the P3_DX r
 	<figcaption>Laser 3D Point Clouds</figcaption>
 </figure>
 <br></br>
-<figure>
+<div class="fig figcenter fighighlight">
 <a href="https://youtu.be/B871f3qa1p4">
-	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px"></a>
-	<figcaption>Laser 2D Point Clouds</figcaption>
-</figure>
-<figure>
+	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px" align="left"></a>
+	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px" alight="right"></a>
+	<div class="figcaption" align="middle">Left: Laser 2D Point Clouds; Right: Sonar 3D Point Clouds</div>
+</div>
+<!-- <figure>
 <a href="https://youtu.be/PYT4FCIVYgw">
 	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px"></a>
 	<figcaption>Sonar 3D Point Clouds</figcaption>
-</figure>
-<!-- [![Laser 2D Point Clouds](https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757)](https://youtu.be/B871f3qa1p4) -->
-<!-- [![Sonar 3D Point Clouds](https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=1466973658634)](https://youtu.be/PYT4FCIVYgw) -->
+</figure> -->
 
 [Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx) package from Adept. 
 
@@ -55,7 +54,7 @@ Here is an example video of the navigation of the robot based on velocities comm
 
 <figure>
 <a href="https://youtu.be/yczG8CUbK2M">
-	<img src="https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359" height="250px" width="250px"></a>
+	<img src="https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359" height="250px" width="700px"></a>
 	<figcaption>Twist commands to the p3_dx robot</figcaption>
 </figure>
 <!-- [![Twist commands to the p3_dx robot](https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359)](https://youtu.be/yczG8CUbK2M)  -->
