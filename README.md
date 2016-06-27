@@ -25,20 +25,40 @@
 
 This repo also has a set of clients that pushes velocity commands to the P3_DX robot from [adept mobile robots](http://www.mobilerobots.com/ResearchRobots/PioneerP3DX.aspx). The package supports indoor localization and dynamic SLAM via an adaptive Monte Carlo Localization (AMCL) for mobile robots as described by Sebastian Thrun, Wolfram Burgard, and Dieter Fox in their book, <i>Probabilistic Robotics, Intelligent Robotics and Autonomous Agent</i>. To aid faster implementation time, we have developed the code in ROS. In addition to sending velocity commands, and performing dynamic SLAM based on LIDAR data, it subscribes to the [RosAria package's](wiki.ros.org/rosaria)sonar scans, laser scans, and projected 3D laser scans(point clouds) and provides a <i>400 X 400</i> pixels window to visualize these topics in real-time. Example point clouds from the sonars and laser scanners are provided below:
 
+<figure>
 <img src="http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx" height="250px" width= "250px">
+<figcaption>P3-DX Robot</figcaption>
+</figure>
+<figure>
 <a href="https://youtu.be/lYgp8qZjvks">
-	<img src="https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005)" height="250px" width="250px">Laser 3D Point Clouds</a>
-<!-- [![Laser 3D Point Clouds](https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005)](https://youtu.be/lYgp8qZjvks) -->
-</br>
-[![Laser 2D Point Clouds](https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757)](https://youtu.be/B871f3qa1p4)
-[![Sonar 3D Point Clouds](https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=1466973658634)](https://youtu.be/PYT4FCIVYgw)
+	<img src="https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005" height="250px" width="250px"></a>
+	<figcaption>Laser 3D Point Clouds</figcaption>
+</figure>
+<br></br>
+<figure>
+<a href="https://youtu.be/B871f3qa1p4">
+	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px"></a>
+	<figcaption>Laser 2D Point Clouds</figcaption>
+</figure>
+<figure>
+<a href="https://youtu.be/PYT4FCIVYgw">
+	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px"></a>
+	<figcaption>Sonar 3D Point Clouds</figcaption>
+</figure>
+<!-- [![Laser 2D Point Clouds](https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757)](https://youtu.be/B871f3qa1p4) -->
+<!-- [![Sonar 3D Point Clouds](https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=1466973658634)](https://youtu.be/PYT4FCIVYgw) -->
 
 [Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx) package from Adept. 
 
 
 Here is an example video of the navigation of the robot based on velocities commands that are sent to the robot after receiving the `TF` transforms broadcaster from the `rosaria` package:
 
-[![Twist commands to the p3_dx robot](https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359)](https://youtu.be/yczG8CUbK2M) 
+<figure>
+<a href="https://youtu.be/yczG8CUbK2M">
+	<img src="https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359" height="250px" width="250px"></a>
+	<figcaption>Twist commands to the p3_dx robot</figcaption>
+</figure>
+<!-- [![Twist commands to the p3_dx robot](https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359)](https://youtu.be/yczG8CUbK2M)  -->
 
 To be able to compile these codes, you would want to pull the files from the links indicated above. 
 
