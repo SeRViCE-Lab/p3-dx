@@ -52,7 +52,7 @@ Here is an example video of the navigation of the robot based on velocities comm
 	<div class="figcaption" align="left" hspace="80">Twist commands to the p3_dx robot</div>
 </div>
 
-To be able to compile these codes, you would want to pull the files from the links indicated above. 
+To compile these codes, you would want to pull the files from the links indicated above. 
 
 ### Dependencies
 
