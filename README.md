@@ -41,8 +41,8 @@ To aid faster implementation time, we have developed the code in ROS. In additio
 	<img src="http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx" height="250px" width="250px" align="left" hspace="40"></a>
 <a href="https://youtu.be/lYgp8qZjvks" target="_blank">
 	<img src="https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005" height="250px" width="250px" alight="right"></a>
-	<div class="figcaption" align="left" hspace="10">P3-DX Robot
-	<div class="figcaption" align="middle">Laser 3D Point Clouds</div></div>
+	<div class="figcaption" align="left" hspace="10">P3-DX Robot</div>
+	<div class="figcaption" align="middle">Laser 3D Point Clouds</div>
 </div>
 
 <br></br>
@@ -51,8 +51,8 @@ To aid faster implementation time, we have developed the code in ROS. In additio
 	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px" align="left" hspace="40"></a>
 	<a href="https://youtu.be/PYT4FCIVYgw" target="_blank">
 	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px" alight="right"></a>
-	<div class="figcaption" align="left" hspace="10">Laser 2D Point Clouds
-	<div class="figcaption" align="middle">Sonar 3D Point Clouds</div></div>
+	<div class="figcaption" align="left" hspace="10">Laser 2D Point Clouds</div>
+	<div class="figcaption" align="middle">Sonar 3D Point Clouds</div>
 </div>
 
 [Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx) package from Adept. 
@@ -64,7 +64,7 @@ Here is an example video of the navigation of the robot based on velocities comm
 <a href="https://youtu.be/yczG8CUbK2M">
 	<img src="https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359" height="300px" width="400px" align="middle"></a>
 	</br>
-	<div class="figcaption" align="middle">Twist commands to the p3_dx robot</div>
+	<div class="figcaption" align="left">Twist commands to the p3_dx robot</div>
 </div>
 <!-- [![Twist commands to the p3_dx robot](https://i.ytimg.com/vi/yczG8CUbK2M/1.jpg?time=1466972319359)](https://youtu.be/yczG8CUbK2M)  -->
 
