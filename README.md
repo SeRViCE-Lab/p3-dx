@@ -40,8 +40,8 @@ This repo also has a set of clients that pushes velocity commands to the P3_DX r
 <a href="https://youtu.be/B871f3qa1p4">
 	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px" align="left"></a>
 	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px" alight="right"></a>
-	<div class="figcaption" align="left">Laser 2D Point Clouds</div>
-	<div class="figcaption" align="right">Sonar 3D Point Clouds</div>
+	<div class="figcaption" align="left">Laser 2D Point Clouds
+	<div class="figcaption" align="right">Sonar 3D Point Clouds</div></div>
 </div>
 <!-- <figure>
 <a href="https://youtu.be/PYT4FCIVYgw">
