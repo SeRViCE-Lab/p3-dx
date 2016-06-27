@@ -6,17 +6,12 @@
 
 [Bring up the Robot](#bring-up-the-robot)
 
-	- [Stream Sonar Point Clouds](#stream-sonar-point-clouds)
-
-	- [Stream Laser 2D clouds (sensor_msgs/PointCloud)](#stream-laser-2D-clouds-(sensor_msgs/pointCloud))
-
-	- [Stream Laser 3D Point clouds](#stream-laser-3d-point-clouds)
-
-	- [Publish dynamic tf transform Twist messages to robot](#publish-dynamic-tf-transform-twist-messages-to-robot)
-
-	- [Start all the nodes above simultaneously](#start-all-the-nodes-above-simultaneously)
-
-	- [Navigate the environment using ROS' navigation stack](#Navigate-the-environment-using-ROS'-navigation-stack)
+	-[Stream Sonar Point Clouds](#stream-sonar-point-clouds)
+	-[Stream Laser 2D clouds (sensor_msgs/PointCloud)](#stream-laser-2D-clouds-(sensor_msgs/pointCloud))
+	-[Stream Laser 3D Point clouds](#stream-laser-3d-point-clouds)
+	-[Publish dynamic tf transform Twist messages to robot](#publish-dynamic-tf-transform-twist-messages-to-robot)
+	-[Start all the nodes above simultaneously](#start-all-the-nodes-above-simultaneously)
+	-[Navigate the environment using ROS' navigation stack](#Navigate-the-environment-using-ROS'-navigation-stack)
 
 [Questions](#questions)
 
