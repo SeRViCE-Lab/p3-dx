@@ -35,9 +35,9 @@ This repo also has a set of clients that pushes velocity commands to the P3_DX r
 	<figcaption>Laser 3D Point Clouds</figcaption>
 </figure> -->
 <div class="fig figcenter fighighlight">
-<a href="">
-	<img src="http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx" height="250px" width="250px" align="left"></a>
-<a href="https://youtu.be/lYgp8qZjvks">
+<a href="" target="_blank">
+	<img src="http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx" height="250px" width="250px" align="left" hspace="20"></a>
+<a href="https://youtu.be/lYgp8qZjvks" target="_blank">
 	<img src="https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005" height="250px" width="250px" alight="right"></a>
 	<div class="figcaption" align="left">P3-DX Robot
 	<div class="figcaption" align="middle">Laser 3D Point Clouds</div></div>
@@ -45,17 +45,13 @@ This repo also has a set of clients that pushes velocity commands to the P3_DX r
 
 <br></br>
 <div class="fig figcenter fighighlight">
-<a href="https://youtu.be/B871f3qa1p4">
-	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px" align="left"></a>
+<a href="https://youtu.be/B871f3qa1p4" target="_blank">
+	<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px" align="left" hspace="20"></a>
+	<a href="https://youtu.be/PYT4FCIVYgw">
 	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px" alight="right"></a>
 	<div class="figcaption" align="left">Laser 2D Point Clouds
 	<div class="figcaption" align="middle">Sonar 3D Point Clouds</div></div>
 </div>
-<!-- <figure>
-<a href="https://youtu.be/PYT4FCIVYgw">
-	<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px"></a>
-	<figcaption>Sonar 3D Point Clouds</figcaption>
-</figure> -->
 
 [Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx) package from Adept. 
 
