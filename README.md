@@ -116,7 +116,7 @@ vel_msg.angular.z = 4.0 * atan2(transform.getOrigin().y(),
 ```
 
 #### 6. Navigate the environment using ROS' navigation stack 
- This uses the adaptive monte carlo localization algorithm as thoroughly discussed by Dieter Fox, Thrun, and colleagues in their book, <i>probabilistic roboticsM </i>. 
+ This uses the adaptive monte carlo localization algorithm as thoroughly discussed by Dieter Fox, Thrun, and colleagues in their book, <i>probabilistic robotics.</i>
 
 ```bash
 	roslaunch p3dx_2dnav move_base.launch
