@@ -36,7 +36,7 @@ public:
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
     readCloud(msg, cloud);
 
-    if(ros::ok())
+    if(ros::ok() && !viewer->wasStopped())
     {
       viewer->setSize(400, 400);
       viewer->addPointCloud<pcl::PointXYZ> (this->laser_cloud_ptr, "laser_ptcloud");

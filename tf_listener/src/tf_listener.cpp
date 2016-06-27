@@ -19,10 +19,11 @@ private:
 	tf::StampedTransform transform;
 
 	ros::NodeHandle n_tf_;
+	bool pirouette;
 
 public:
-	tf_listener(ros::NodeHandle n_tf) 
-	: n_tf_(n_tf)	
+	tf_listener(ros::NodeHandle n_tf, bool pirouette) 
+	: n_tf_(n_tf), pirouette(pirouette)	
 	{}
 	~tf_listener() {}
 	void gen_vel();
@@ -33,7 +34,7 @@ public:
 		{		
 			target_frame = (*it).header.frame_id;
 			source_frame = (*it).child_frame_id;
-			timeout = ros::Duration(0.01);
+			timeout = ros::Duration(0.2);
 			polling_duration = ros::Duration(0.01);
 		}
 
@@ -54,7 +55,10 @@ public:
 		}
 
 		//resulting transform now in the transform object
-		gen_vel();  //move linearly along x and orientation along
+		if(pirouette)
+		{
+			gen_vel(); //move linearly along x and orientation along
+		}  
 	}
 };
 
@@ -77,7 +81,16 @@ int main (int argc, char** argv)
 	ros::init(argc, argv, "tf_listener_node");
 	ros::NodeHandle n_tf;
 	ros::Subscriber sub;
-	tf_listener tf(n_tf);
+	bool pirouette;
+
+	std::vector<std::string> args(argv, argv+argc);
+	for (size_t i = 1; i < args.size(); ++i) 
+	{
+	   if (args[i] == "-p" || args[i] == "-pirouette" ) 
+			pirouette = true;
+	}
+
+	tf_listener tf(n_tf, pirouette);
 	sub = n_tf.subscribe("/tf", 1000, &tf_listener::tfCallback, &tf);
 	ros::spin();
 

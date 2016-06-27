@@ -59,7 +59,7 @@ public:
 
     readCloud(cloud, pclCloud);    
 
-    if(ros::ok())
+    if(ros::ok() && !viewer->wasStopped())
     {            
       viewer->setSize(400, 400);
       viewer->addPointCloud<pcl::PointXYZ> (this->pclCloud, "laser_cloud");     

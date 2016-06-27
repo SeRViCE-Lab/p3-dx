@@ -2,7 +2,7 @@
 * Author: Olalelan Ogunmolu
 * Boston, MA
 * June 2016
-* Licensed under the Amazon Robotics License
+* Licensed under the MIT License
 */
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
@@ -47,7 +47,7 @@ public:
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
     readCloud(msg, cloud);
 
-    if(ros::ok())
+    if(ros::ok() && !viewer->wasStopped())
     {     
      viewer->addPointCloud<pcl::PointXYZ> (this->cloud, "sonar_cloud");     
      viewer->setSize(400, 400);

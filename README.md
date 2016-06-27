@@ -9,6 +9,7 @@
 -	[Stream Laser 2D clouds (sensor_msgs/PointCloud)](#stream-laser-2D-clouds-(sensor_msgs/pointCloud))
 -	[Stream Laser 3D Point clouds](#stream-laser-3d-point-clouds)
 -	[Publish dynamic tf transform Twist messages to robot](#publish-dynamic-tf-transform-twist-messages-to-robot)
+[Running the Navigation Stack](#running-the-navigation-stack)
 -	[Start all the nodes above simultaneously](#start-all-the-nodes-above-simultaneously)
 -	[Navigate the environment using ROS' navigation stack](#Navigate-the-environment-using-ROS'-navigation-stack)
 
@@ -109,13 +110,18 @@ vel_msg.angular.z = 4.0 * atan2(transform.getOrigin().y(),
 	rosrun tf_listener tf_listener
 ```
 
-#### 5. Start all the nodes above simultaneously
+
+### Running the Navigation Stack
+
+Terminal 1:
+#### 1. Start all the nodes above simultaneously
 
 ```bash
 	roslaunch p3dx_2dnav p3_dx.launch
 ```
 
-#### 6. Navigate the environment using ROS' navigation stack 
+Terminal 2
+#### 2. Navigate the environment using ROS' navigation stack 
  This uses the adaptive monte carlo localization algorithm as thoroughly discussed by Dieter Fox, Thrun, and colleagues in their book, <i>probabilistic robotics.</i>
 
 ```bash
@@ -129,5 +135,5 @@ A static map of the environment (generated with [openslam's gmapping](http://ope
 
 ### Questions
 
-Please use the issues page. Thanks!
+Please use the issues page.
 
