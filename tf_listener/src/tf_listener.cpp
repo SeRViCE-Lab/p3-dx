@@ -53,8 +53,8 @@ public:
 		      ros::Duration(1.0).sleep();	    
 		}
 
-		//resulting transform now in transform object
-		gen_vel();
+		//resulting transform now in the transform object
+		gen_vel();  //move linearly along x and orientation along
 	}
 };
 
