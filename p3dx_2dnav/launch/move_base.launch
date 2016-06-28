@@ -2,7 +2,7 @@
   <master auto="start"/>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.pgm 0.05"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.pgm 0.5"/>
 
   <!--- Run AMCL -->
   <include file="$(find amcl)/examples/amcl_omni.launch" />

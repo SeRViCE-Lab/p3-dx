@@ -26,7 +26,7 @@ To aid faster implementation time, we have developed the code in ROS. In additio
 	<a href="" target="_blank">
 		<img src="http://www.mobilerobots.com/Libraries/Site_Images/P3-DXwith_ball_2.sflb.ashx" height="250px" width="250px" align="left" hspace="40"></a>
 	<a href="https://youtu.be/lYgp8qZjvks" target="_blank">
-		<img src="https://i.ytimg.com/vi/lYgp8qZjvks/2.jpg?time=1466973717005" height="250px" width="250px" alight="right"></a>
+		<img src="/p3dx_2dnav/map_data/laser3d.png" height="250px" width="250px" alight="right"></a>
 	<div class="figcaption" align="left" hspace="10">P3-DX Robot</div>
 	<div class="figcaption" align="middle">Laser 3D Point Clouds</div>
 </div>
@@ -34,17 +34,16 @@ To aid faster implementation time, we have developed the code in ROS. In additio
 <br></br>
 <div class="fig figcenter fighighlight">
 	<a href="https://youtu.be/B871f3qa1p4" target="_blank">
-		<img src="https://i.ytimg.com/vi/B871f3qa1p4/2.jpg?time=1466973686757" height="250px" width="250px" align="left" hspace="40"></a>
+		<img src="/p3dx_2dnav/map_data/laser2d.png" height="250px" width="250px" align="left" hspace="40"></a>
 	<a href="https://youtu.be/PYT4FCIVYgw" target="_blank">
-		<img src="https://i.ytimg.com/vi/PYT4FCIVYgw/1.jpg?time=14669736586347" height="250px" width="250px" alight="right"></a>
+		<img src="/p3dx_2dnav/map_data/sonar3d.png" height="250px" width="250px" alight="right"></a>
 	<div class="figcaption" align="left" hspace="10">Laser 2D Point Clouds</div>
 	<div class="figcaption" align="middle">Sonar 3D Point Clouds</div>
 </div>
+<!-- 
+[Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx) package from Adept.  -->
 
-[Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx) package from Adept. 
-
-
-Here is an example video of the navigation of the robot based on velocities commands that are sent to the robot after receiving the `TF` transforms broadcaster from the `rosaria` package:
+Here is an example video of the navigation of the robot based on velocity commands that are sent to the robot after receiving the `TF` transform broadcasters from the `rosaria` package:
 
 <div class="fig figcenter fighighlight">
 <a href="https://youtu.be/yczG8CUbK2M">
@@ -57,9 +56,9 @@ To compile these codes, you would want to pull the files from the links indicate
 
 ### Dependencies
 
-Please install [Aria](http://robots.mobilerobots.com/wiki/ARIA#Download_Aria) and [Arnl](http://robots.mobilerobots.com/wiki/ARNL,_SONARNL_and_MOGS#Download) packages by following the intructions on the links. Also, you would want to install the ros wrappers to the Aria and Arnl packages namely: [rosarnl](https://github.com/MobileRobots/ros-arnl) and [rosaria](http://wiki.ros.org/ROSARIA). 
+Please install the [Aria](http://robots.mobilerobots.com/wiki/ARIA#Download_Aria) and [Arnl](http://robots.mobilerobots.com/wiki/ARNL,_SONARNL_and_MOGS#Download) packages by following the intructions on the links, [Aria](http://www.mobilerobots.com/Software/ARIA.aspx) package and [Arnl](http://www.mobilerobots.com/Software/NavigationSoftware.aspx). Also, you would want to install the ros wrappers to the Aria and Arnl packages namely: [rosarnl](https://github.com/MobileRobots/ros-arnl) and [rosaria](http://wiki.ros.org/ROSARIA). 
 
-In addition to the above dependencies, you would preferrably want to compile the code using c++11. On Linux, ensure you have at least g++ 4.8 and pass the `-std=c++11` to the CMakeLists.txt files (this is already done by default).
+In addition to the above dependencies, you would preferrably want to compile the code using c++11. On Linux, ensure you have at least g++ 4.8 and pass the `-std=c++11` to the CMakeLists.txt files (this is already done by default in the accompanying CMakeLists file).
 
 When you are all set, you can clone this repo to your catkin workspace `src` folder and build with 
 
@@ -68,7 +67,7 @@ When you are all set, you can clone this repo to your catkin workspace `src` fol
 ```
 ### Bring up the Robot
 
-When the compilation finishes, you could run each individual executable as follows:
+When the compilation finishes, you can run each individual executable as follows:
 
 #### 1. Stream Sonar Point Clouds
 
@@ -76,7 +75,7 @@ When the compilation finishes, you could run each individual executable as follo
 	rosrun sonar_clouds sonar_clouds
 ```
 
-Remember to click on the PCL window and zoom out the clouds for visibility.
+Remember to click on the PCL window and zoom out on the clouds for visibility.
 
 #### 2. Stream Laser 2D clouds (sensor_msgs/PointCloud)
 
@@ -90,9 +89,9 @@ Remember to click on the PCL window and zoom out the clouds for visibility.
 	rosrun scanner_clouds scanner_clouds
 ```
 
-#### 4. Publish dynamic `tf transform` Twist messages to the `RosAria` topic: /RosAria/cmd_vel
+#### 4. Publish dynamic `tf transform` Twist messages to the `RosAria` topic: `/RosAria/cmd_vel`
 
-After retrieving RosAria's latest published transforms, from the `odometry` frame -> `base_link` -> `laser frame`, we generate the transform from the origin to a new pose at time t_1 and we move linearly along x according to the following relation:
+After retrieving RosAria's latest published transforms, from the `odometry` frame -> `base_link` -> `laser frame`, we generate the transform from the origin to a new pose at time `t_1` and we move linearly along x according to the following relation:
 
 ```lua
 vel_msg.linear.x = 0.5 * sqrt(pow(transform.getOrigin().x(), 2) +
@@ -105,30 +104,31 @@ vel_msg.angular.z = 4.0 * atan2(transform.getOrigin().y(),
                                 transform.getOrigin().x());
 
 ```
+To start the lookuptransform, do this in a separate terminal:
 
 ```bash
 	rosrun tf_listener tf_listener
 ```
 
+To generate dynamic motions based on the relations above, pass `-p` or `-pirouette` to the command above.
+
 
 ### Running the Navigation Stack
 
-Terminal 1:
-#### 1. Start all the nodes above simultaneously
+#### 1. Terminal 1: Start all the nodes above simultaneously
 
 ```bash
 	roslaunch p3dx_2dnav p3_dx.launch
 ```
 
-Terminal 2
-#### 2. Navigate the environment using ROS' navigation stack 
- This uses the adaptive monte carlo localization algorithm as thoroughly discussed by Dieter Fox, Thrun, and colleagues in their book, <i>probabilistic robotics.</i>
+#### 2. Terminal 2: Navigate the environment using ROS' navigation stack 
+ This uses the adaptive monte carlo localization algorithm as thoroughly discussed by Dieter Fox, Thrun, and colleagues in their book, <i>Probabilistic Robotics.</i> Fire up a separate terminal and do:
 
 ```bash
 	roslaunch p3dx_2dnav move_base.launch
 ```
 
-A static map of the environment (generated with [openslam's gmapping](http://openslam.org/gmapping.html)) that was used for development is provided in the directory [p3dx_2dnav/map/map.pgm](/p3dx_2dnav/map/map.pgm). Feel free to create your own map and feed it to the robot by following the [Ros Map Server Tutorial](http://wiki.ros.org/map_server). Also provided along with the map are the global costmap, local costmap, base local planner and costmap common parameters that are used in setting up the ROS navigation stack when you bring up the robot 
+A static map of the environment (generated with [openslam's gmapping](http://openslam.org/gmapping.html)) that was used for development is provided in the directory [p3dx_2dnav/map_data/map.pgm](/p3dx_2dnav/map/map.pgm). Feel free to create your own map and feed it to the robot by following the [Ros Map Server Tutorial](http://wiki.ros.org/map_server). Also provided along with the map are the global costmap, local costmap, base local planner and costmap common parameters that are used in setting up the ROS navigation stack when you bring up the robot 
 
  This will navigate the environment with all the robot's sensors and will dynamically update map of the environment based on real-time acquired sensor information. 
 
