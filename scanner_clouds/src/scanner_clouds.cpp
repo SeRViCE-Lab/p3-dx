@@ -66,7 +66,7 @@ public:
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewerCreator()
   {        
     boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Laser Clouds 3D"));
-    viewer->setBackgroundColor (0, 0, 0);
+    viewer->setBackgroundColor (0.2, 0.3, 0.3);
     viewer->addCoordinateSystem (1.0);    //don't want no cylinder
     viewer->setSize(400, 400);
     viewer->initCameraParameters ();    

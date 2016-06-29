@@ -99,7 +99,7 @@ laser_clouds::laser_clouds()
 boost::shared_ptr<pcl::visualization::PCLVisualizer> laser_clouds::viewerCreator()
 {    
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("Laser Scans 2D"));
-  viewer->setBackgroundColor (0, 0, 0);
+  viewer->setBackgroundColor  (0.2, 0.3, 0.3);
   viewer->addCoordinateSystem (1.0);    //don't want no cylinder
   viewer->setSize(400, 400);
   viewer->initCameraParameters ();
