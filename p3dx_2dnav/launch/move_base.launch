@@ -2,9 +2,10 @@
   <master auto="start"/>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.pgm 0.5"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.yaml" respawn="true"/>
 
   <!--- Run AMCL -->
+   <!-- <include file="$(find amcl)/examples/amcl_diff.launch" /> -->
   <include file="$(find amcl)/examples/amcl_omni.launch" />
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">

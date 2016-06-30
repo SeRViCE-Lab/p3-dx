@@ -1,8 +1,8 @@
 obstacle_range: 0.1
 raytrace_range: 0.1
-footprint: [[2.70, 2.15], [2.45, 2.15], [2.45, -2.15], [-2.70, -2.15]]
-#robot_radius: 0.4699  #meters
-inflation_radius: 0.5048 #1 feet
+#footprint: [[2.70, 2.15], [2.45, 2.15], [2.45, -2.15], [-2.70, -2.15]]
+robot_radius: 0.4699  #meters
+inflation_radius: 0.1048 #1 feet
 
 observation_sources: laser_scan_sensor point_cloud_sensor
 
