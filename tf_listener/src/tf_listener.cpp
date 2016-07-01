@@ -35,14 +35,14 @@ public:
 			target_frame = (*it).header.frame_id;
 			source_frame = (*it).child_frame_id;
 			timeout = ros::Duration(0.2);
-			polling_duration = ros::Duration(0.01);
+			polling_duration = ros::Duration(0.2);
 		}
 
-/*		if(!listener.waitForTransform(target_frame, \
+		if(!listener.waitForTransform(target_frame, \
 		              source_frame, ros::Time(0), polling_duration));
 		{
 		   return;
-		}*/
+		}
 		try
 		{
 			listener.lookupTransform(target_frame, source_frame, \

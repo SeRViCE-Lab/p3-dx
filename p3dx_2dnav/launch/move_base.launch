@@ -2,11 +2,11 @@
   <master auto="start"/>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.yaml" respawn="true"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.yaml" respawn="false"/>
 
   <!--- Run AMCL -->
    <!-- <include file="$(find amcl)/examples/amcl_diff.launch" /> -->
-  <include file="$(find amcl)/examples/amcl_omni.launch" />
+  <include file="$(find p3dx_2dnav)/launch/amcl_omni.launch" />
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <rosparam file="$(find p3dx_2dnav)/cost_params/costmap_common_params.yaml" command="load" ns="global_costmap" />
