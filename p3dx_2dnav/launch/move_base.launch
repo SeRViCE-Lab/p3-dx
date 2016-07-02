@@ -2,7 +2,7 @@
   <master auto="start"/>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.yaml" respawn="false"/>
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.yaml" respawn="false"/> -->
 
   <!--- Run AMCL -->
    <!-- <include file="$(find amcl)/examples/amcl_diff.launch" /> -->
