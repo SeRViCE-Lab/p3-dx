@@ -5,9 +5,10 @@ local_costmap:
   publish_frequency: 5.0
   static_map: false
   rolling_window: true # must be set to false to use static map
-  width: 2.0
-  height: 2.0
   resolution: 0.5
   transform_tolerance: 0.5 #tolerable delay in seconds
-  origin_x: -4.0
-  origin_y: -4.0
+
+  width: 160.3
+  height: 160.773
+  origin_x: -70.702
+  origin_y: -66.819

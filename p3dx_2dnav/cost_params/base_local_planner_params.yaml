@@ -9,8 +9,12 @@ TrajectoryPlannerROS:
   acc_lim_x: 1.5
   acc_lim_y: 1.5
 
-  escape_vel: -0.2
+  #Trajectory scoring parameters: http://wiki.ros.org/base_local_planner#Map_Grid
+  escape_vel: -0.3 #speed for escaping when stuck
   meter_scoring: true
-
+  sim_time: 0.5
+  dwa: true #use dynamic window approach
+  publish_cost_grid: true
+  global_frame_id: base_link #Should be set to the same frame as the local costmap's global frame
 
   holonomic_robot: true
