@@ -1,13 +1,13 @@
 obstacle_range: 0.2
 raytrace_range: 0.2
-footprint: [[2.70, 2.15], [2.45, 2.15], [2.45, -2.15], [-2.70, -2.15]]
-#robot_radius: 0.4699  #meters
+# footprint: [[2.70, 2.15], [2.45, 2.15], [2.45, -2.15], [-2.70, -2.15]]
+robot_radius: 0.4699  #meters
 inflation_radius: 0.2048 #1 feet
 
 observation_sources: laser_scan_sensor point_cloud_sensor
 
-laser_scan_sensor: {sensor_frame: laser_frame, data_type: LaserScan, topic: /RosAria/lms5XX_1_laserscan, marking: true, clearing: true}
+laser_scan_sensor: {sensor_frame: laser_frame, data_type: LaserScan, topic: /rosarnl_node/lms5XX_1_laserscan, marking: true, clearing: true}
 
-point_cloud_sensor: {sensor_frame: odom, data_type: PointCloud, topic: /RosAria/lms5XX_1_pointcloud, marking: true, clearing: true}
+point_cloud_sensor: {sensor_frame: odom, data_type: PointCloud, topic: /rosarnl_node/lms5XX_1_pointcloud, marking: true, clearing: true}
 
-laser_scan_sensor: {sensor_frame: sonar_frame, data_type: PointCloud2, topic: /RosAria/sonar_pointcloud2, marking: true, clearing: true}
+#laser_scan_sensor: {sensor_frame: sonar_frame, data_type: PointCloud2, topic: /RosAria/sonar_pointcloud2, marking: true, clearing: true}

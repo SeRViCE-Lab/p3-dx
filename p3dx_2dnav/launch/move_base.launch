@@ -2,7 +2,7 @@
   <master auto="start"/>
 
   <!-- Run the map server -->
-  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/map.yaml" respawn="false"/> -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find p3dx_2dnav)/map_data/myroom2.yaml" respawn="true"/>
 
   <!--- Run AMCL -->
    <!-- <include file="$(find amcl)/examples/amcl_diff.launch" /> -->
@@ -14,6 +14,6 @@
     <rosparam file="$(find p3dx_2dnav)/cost_params/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find p3dx_2dnav)/cost_params/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find p3dx_2dnav)/cost_params/base_local_planner_params.yaml" command="load" />
-    <param name="use_sim_time" vaue="true" />
+    <param name="use_sim_time" value="false" />
   </node>
 </launch>
